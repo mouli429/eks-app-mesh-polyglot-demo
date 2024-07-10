@@ -34,3 +34,8 @@ stages:
         repository: 'mouli9490/azure_pipeline'
         command: 'buildAndPush'
         Dockerfile: '**/Dockerfile'
+    - task: PublishBuildArtifacts@1
+      inputs:
+        PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+        ArtifactName: 'drop'
+        publishLocation: 'Container'
